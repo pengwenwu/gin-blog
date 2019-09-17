@@ -5,6 +5,7 @@ import (
 
 	"gin-blog/pkg/setting"
 	"gin-blog/router/api/v1"
+	"gin-blog/router/api"
 )
 
 func InitRouter() *gin.Engine {
@@ -12,6 +13,8 @@ func InitRouter() *gin.Engine {
 	r.Use(gin.Logger())
 	r.Use(gin.Recovery())
 	gin.SetMode(setting.RunMode)
+
+	r.GET("/auth", api.GetAuth)
 
 	apiv1 := r.Group("/api/v1")
 	{
