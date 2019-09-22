@@ -2,7 +2,6 @@ package logging
 
 import (
 	"fmt"
-	"google.golang.org/genproto/googleapis/cloud/bigquery/logging/v1"
 	"log"
 	"os"
 	"path/filepath"
