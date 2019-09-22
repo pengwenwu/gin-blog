@@ -19,7 +19,7 @@ func InitRouter() *gin.Engine {
 
 	apiv1 := r.Group("/api/v1")
 	apiv1.Use(jwt.Jwt())
-	
+
 	{
 		//获取标签列表
 		apiv1.GET("/tags", v1.GetTags)
