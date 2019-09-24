@@ -1,7 +1,6 @@
 package api
 
 import (
-	"log"
 	"net/http"
 
 	"github.com/astaxie/beego/validation"
@@ -10,6 +9,7 @@ import (
 	"gin-blog/model"
 	"gin-blog/pkg/e"
 	"gin-blog/pkg/util"
+	"gin-blog/pkg/logging"
 )
 
 type auth struct {
@@ -40,9 +40,11 @@ func GetAuth(c *gin.Context)  {
 				code = e.SUCCESS
 			}
 		} else {
-			for _, err := range valid.Errors {
-				log.Println(err.Key, err.Message)
-			}
+			code = e.ERROR_AUTH
+		}
+	} else {
+		for _, err := range valid.Errors {
+			logging.Info(err.Key, err.Message)
 		}
 	}
 

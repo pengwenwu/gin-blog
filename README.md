@@ -3,9 +3,9 @@
 gin-blog/
 ├── conf
 ├── middleware
-├── models
+├── model
 ├── pkg
-├── routers
+├── router
 └── runtime
 ```
 - conf：用于存储配置文件
